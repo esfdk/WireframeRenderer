@@ -1,0 +1,32 @@
+\section{Overview of the Program}
+\subsection{Objects}
+\textbf{Vector}
+
+\textbf{Matrix}
+
+\textbf{Vertex}
+
+\textbf{Triangle}
+
+\textbf{Camera}
+
+\textbf{Loader}
+
+\subsection{Renderer}
+
+how does renderer draw (when)
+
+drawing process
+	(calculate camera transforms, see \ref{Overview_Math_Single})
+	(foreach triangle : update triangle according to camera, draw triangle based on view points)
+	(only draws lines, not points)
+
+\subsection{Math}
+
+vertices are given the camera and calculate their own screen points (instead of renderer doing so) [point out problem with calculating points that are offscreen]
+
+no frustum culling
+
+\subsubsection{Single calculation}
+\label{Overview_Math_Single}
+One calculation of camera transforms per draw

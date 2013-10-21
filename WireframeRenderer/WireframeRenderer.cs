@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WireframeRenderer
+﻿namespace WireframeRenderer
 {
+    using System;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// The wireframe renderer.
+    /// </summary>
     public class WireframeRenderer
     {
-
+        /// <summary>
+        /// The main method of the program.
+        /// </summary>
+        /// <param name="args">The args.</param>
         [STAThread]
         public static void Main(string[] args)
         {

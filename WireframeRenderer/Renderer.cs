@@ -4,6 +4,9 @@
     using System.Drawing;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// The wireframe renderer.
+    /// </summary>
     public partial class Renderer : Form
     {
         #region Fields
@@ -30,6 +33,7 @@
 
         #region Constructors
         /// <summary>
+        /// Initializes a new instance of the <see cref="Renderer"/> class. 
         /// Main renderer class.
         /// </summary>
         public Renderer()
@@ -46,7 +50,7 @@
             triangles = Loader.Pyramid();
 
             KeyPreview = true;
-            KeyPress += Renderer_KeyPress;
+            KeyPress += this.RendererKeyPress;
         }
         #endregion
 
@@ -54,8 +58,8 @@
         /// <summary>
         /// Paints the wireframe.
         /// </summary>
-        /// <param name="sender">Who called the paint event</param>
-        /// <param name="e">Arguments</param>
+        /// <param name="sender">Who called the paint event.</param>
+        /// <param name="e">The arguments.</param>
         private void Renderer_Paint(object sender, PaintEventArgs e)
         {
             camera.CalculateTransforms();
@@ -72,7 +76,7 @@
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The arguments.</param>
-        private void Renderer_KeyPress(object sender, KeyPressEventArgs e)
+        private void RendererKeyPress(object sender, KeyPressEventArgs e)
         {
             // Escape makes the program stop
             if (e.KeyChar == 27)
@@ -80,35 +84,48 @@
                 Application.Exit();
             }
 
-            #region Move
-            // Left on x-axis.
-            if (e.KeyChar == 'a') camera.Move(-10, 0, 0);
-            // Right on x-axis.
-            if (e.KeyChar == 'd') camera.Move(10, 0, 0);
-            // Down on y-axis.
-            if (e.KeyChar == 's') camera.Move(0, -10, 0);
-            // Up on y-axis. 
-            if (e.KeyChar == 'w') camera.Move(0, 10, 0);
-            // "Backwards" on the z-axis.
-            if (e.KeyChar == 'q') camera.Move(0, 0, -10);
-            // "Forwards" on the z-axis.
-            if (e.KeyChar == 'e') camera.Move(0, 0, 10);
-            #endregion
+            switch (e.KeyChar)
+            {
+                // Movement of camera.
+                case 'a': // Left on X-axis.
+                    camera.Move(-10, 0, 0);
+                    break;
+                case 'd': // Right on X-axis.
+                    camera.Move(10, 0, 0);
+                    break;
+                case 's': // Down on Y-axis.
+                    camera.Move(0, -10, 0);
+                    break;
+                case 'w': // Up on Y-axis. 
+                    camera.Move(0, 10, 0);
+                    break;
+                case 'q': // Left on the Z-axis.
+                    camera.Move(0, 0, -10);
+                    break;
+                case 'e': // Right on the Z-axis.
+                    camera.Move(0, 0, 10);
+                    break;
 
-            #region LookChange
-            // Left on the x-axis.
-            if (e.KeyChar == 'j') camera.LookMove(-10, 0, 0);
-            // Right on x-axis.
-            if (e.KeyChar == 'l') camera.LookMove(10, 0, 0);
-            // Down on y-axis.
-            if (e.KeyChar == 'k') camera.LookMove(0, -10, 0);
-            // Up on y-axis. 
-            if (e.KeyChar == 'i') camera.LookMove(0, 10, 0);
-            // "Backwards" on the z-axis.
-            if (e.KeyChar == 'u') camera.LookMove(0, 0, -10);
-            // "Forwards" on the z-axis.
-            if (e.KeyChar == 'o') camera.LookMove(0, 0, 10);
-            #endregion
+                // Movement of the lookpoint
+                case 'j': // Left on the X-axis.
+                    camera.LookMove(-10, 0, 0);
+                    break;
+                case 'l': // Right on X-axis.
+                    camera.LookMove(10, 0, 0);
+                    break;
+                case 'k': // Down on Y-axis.
+                    camera.LookMove(0, -10, 0);
+                    break;
+                case 'i': // Up on Y-axis. 
+                    camera.LookMove(0, 10, 0);
+                    break;
+                case 'u': // Left on the Z-axis.
+                    camera.LookMove(0, 0, -10);
+                    break;
+                case 'o': // Right on the Z-axis.
+                    camera.LookMove(0, 0, 10);
+                    break;
+            }
 
             Invalidate();
         }

@@ -5,7 +5,7 @@
     /// <summary>
     /// Loads the triangles for the camera to use.
     /// </summary>
-    class Loader
+    public class Loader
     {
         #region Static Methods
         /// <summary>
@@ -26,16 +26,16 @@
         {
             var pyramidTriangles = new List<Triangle>();
 
-            const int near = 50;
-            const int mid = 100;
-            const int far = 150;
-            const int height = 75;
+            const int Near = 50;
+            const int Mid = 100;
+            const int Far = 150;
+            const int Height = 75;
             
-            var v1 = new Vertex(near, 0, near);
-            var v2 = new Vertex(far, 0, near);
-            var v3 = new Vertex(near, 0, far);
-            var v4 = new Vertex(far, 0, far);
-            var v5 = new Vertex(mid, height, mid);
+            var v1 = new Vertex(Near, 0, Near);
+            var v2 = new Vertex(Far, 0, Near);
+            var v3 = new Vertex(Near, 0, Far);
+            var v4 = new Vertex(Far, 0, Far);
+            var v5 = new Vertex(Mid, Height, Mid);
 
             var t1 = new Triangle(v1, v2, v5);
             var t2 = new Triangle(v1, v3, v5);

@@ -9,16 +9,16 @@
     {
         #region Constructors
         /// <summary>
-        /// Creates a new instance of Vector.
+        /// Initializes a new instance of the <see cref="Vector"/> class. 
         /// </summary>
-        /// <param name="x">The x-coordinate of the vector.</param>
-        /// <param name="y">The y-coordinate of the vector.</param>
-        /// <param name="z">The z-coordinate of the vector.</param>
+        /// <param name="x">The X-coordinate of the vector.</param>
+        /// <param name="y">The Y-coordinate of the vector.</param>
+        /// <param name="z">The Z-coordinate of the vector.</param>
         public Vector(double x, double y, double z)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
         }
         #endregion
 
@@ -26,17 +26,34 @@
         /// <summary>
         /// Gets or sets the X value.
         /// </summary>
-        public double x { get; set; }
+        public double X { get; set; }
 
         /// <summary>
         /// Gets or sets the Y value.
         /// </summary>
-        public double y { get; set; }
+        public double Y { get; set; }
 
         /// <summary>
         /// Gets or sets the Z value.
         /// </summary>
-        public double z { get; set; }
+        public double Z { get; set; }
+        #endregion
+
+        #region Static Methods
+        /// <summary>
+        /// Cross product of two vectors.
+        /// </summary>
+        /// <param name="first">First vector.</param>
+        /// <param name="second">Second vector.</param>
+        /// <returns>The vector contained the cross product.</returns>
+        public static Vector CrossProduct(Vector first, Vector second)
+        {
+            var a = (first.Y * second.Z) - (first.Z * second.Y);
+            var b = (first.Z * second.X) - (first.X * second.Z);
+            var c = (first.X * second.Y) - (first.Y * second.X);
+
+            return new Vector(a, b, c);
+        }
         #endregion
 
         #region Methods
@@ -46,36 +63,19 @@
         /// <returns>The length of the vector.</returns>
         public double Length()
         {
-            return Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
+            return Math.Sqrt(Math.Pow(this.X, 2) + Math.Pow(this.Y, 2) + Math.Pow(this.Z, 2));
         }
 
         /// <summary>
-        /// Normalises the vector.
+        /// Normalizes the vector.
         /// </summary>
-        /// <returns>The vector normalised.</returns>
+        /// <returns>The vector normalized.</returns>
         public Vector Normalise()
         {
             var length = Length();
-            var vector = new Vector(x / length, y / length, z / length);
+            var vector = new Vector(this.X / length, this.Y / length, this.Z / length);
             
             return vector;
-        }
-        #endregion
-
-        #region Static Methods
-        /// <summary>
-        /// Crossproduct of two vectors.
-        /// </summary>
-        /// <param name="aVector">First vector.</param>
-        /// <param name="bVector">Second vector.</param>
-        /// <returns>The vector contained the cross product.</returns>
-        public static Vector CrossProduct(Vector aVector, Vector bVector)
-        {
-            var a = (aVector.y * bVector.z) - (aVector.z * bVector.y);
-            var b = (aVector.z * bVector.x) - (aVector.x * bVector.z);
-            var c = (aVector.x * bVector.y) - (aVector.y * bVector.x);
-            
-            return new Vector(a, b, c);
         }
         #endregion
     }

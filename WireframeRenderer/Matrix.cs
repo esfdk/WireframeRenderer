@@ -13,38 +13,52 @@
         private readonly double[,] matrix;
         #endregion
 
+        #region Constructors
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Matrix"/> class. 
+        /// Creates a matrix of height * width dimensions.
+        /// </summary>
+        /// <param name="dim1">Height dimension.</param>
+        /// <param name="dim2">Width dimension.</param>
+        public Matrix(int dim1, int dim2)
+        {
+            matrix = new double[dim1, dim2];
+        }
+        #endregion
+
         #region Properties
         /// <summary>
-        /// Height of the matrix.
+        /// Gets the height of the matrix.
         /// </summary>
-        public int Height { get { return matrix.GetLength(0); } }
+        public int Height
+        {
+            get
+            {
+                return matrix.GetLength(0);
+            }
+        }
+
         /// <summary>
-        /// Width of the matrix.
+        /// Gets the width of the matrix.
         /// </summary>
-        public int Width { get { return matrix.GetLength(1); } }
+        public int Width
+        {
+            get
+            {
+                return matrix.GetLength(1);
+            }
+        }
 
         /// <summary>
         /// Sets the value of element in the matrix.
         /// </summary>
         /// <param name="x">The height position.</param>
         /// <param name="y">The width position.</param>
-        /// <returns></returns>
+        /// <returns>The value at the specified location in the matrix.</returns>
         public double this[int x, int y]
         {
             get { return matrix[x, y]; }
             set { matrix[x, y] = value; }
-        }
-        #endregion
-
-        #region Constructors
-        /// <summary>
-        /// Creates a matrix of height * width dimensions.
-        /// </summary>
-        /// <param name="dim1">height dimension.</param>
-        /// <param name="dim2">width dimension.</param>
-        public Matrix(int dim1, int dim2)
-        {
-            matrix = new double[dim1, dim2];
         }
         #endregion
 

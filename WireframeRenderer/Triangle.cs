@@ -5,6 +5,28 @@
     /// </summary>
     public class Triangle
     {
+        #region Constructors
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Triangle"/> class. 
+        /// </summary>
+        public Triangle()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Triangle"/> class. 
+        /// </summary>
+        /// <param name="a">The first vertex of the triangle.</param>
+        /// <param name="b">The second vertex of the triangle.</param>
+        /// <param name="c">The third vertex of the triangle.</param>
+        public Triangle(Vertex a, Vertex b, Vertex c)
+        {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+        #endregion
+
         #region Properties
         /// <summary>
         /// Gets or sets the A vertex.
@@ -22,30 +44,11 @@
         public Vertex c { get; set; }
         #endregion
 
-        #region Constructors
-        /// <summary>
-        /// Creates a new instance of Triangle.
-        /// </summary>
-        public Triangle(){}
-
-        /// <summary>
-        /// Creates a new instance of Triangle.
-        /// </summary>
-        /// <param name="a">The first vertex of the triangle.</param>
-        /// <param name="b">The second vertex of the triangle.</param>
-        /// <param name="c">The third vertex of the triangle.</param>
-        public Triangle(Vertex a, Vertex b, Vertex c)
-        {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-        }
-        #endregion
-
         #region Methods
         /// <summary>
         /// Updates the triangle for use with the camera.
         /// </summary>
+        /// <param name="camera">The camera.</param>
         public void Update(Camera camera)
         {
             a.Update(camera);
