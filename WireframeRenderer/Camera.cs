@@ -13,7 +13,7 @@
         /// </summary>
         public Camera()
         {
-            Postion = new Vector(0, 50, 0);
+            Postion = new Vector(15, 20, 5);
             LookPoint = new Vector(400, 0, 400);
             UpVector = new Vector(0, 1, 0);
 

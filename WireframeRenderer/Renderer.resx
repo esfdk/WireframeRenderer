@@ -59,52 +59,52 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <Xsd:schema id="root" Xmlns="" Xmlns:Xsd="http://WWW.W3.org/2001/XMLSchema" Xmlns:msdata="urn:schemas-microsoft-com:Xml-msdata">
-    <Xsd:import namespace="http://WWW.W3.org/XML/1998/namespace" />
-    <Xsd:element name="root" msdata:IsDataSet="true">
-      <Xsd:compleXTYpe>
-        <Xsd:choice maXOccurs="unbounded">
-          <Xsd:element name="metadata">
-            <Xsd:compleXTYpe>
-              <Xsd:sequence>
-                <Xsd:element name="value" tYpe="Xsd:string" minOccurs="0" />
-              </Xsd:sequence>
-              <Xsd:attribute name="name" use="required" tYpe="Xsd:string" />
-              <Xsd:attribute name="tYpe" tYpe="Xsd:string" />
-              <Xsd:attribute name="mimetYpe" tYpe="Xsd:string" />
-              <Xsd:attribute ref="Xml:space" />
-            </Xsd:compleXTYpe>
-          </Xsd:element>
-          <Xsd:element name="assemblY">
-            <Xsd:compleXTYpe>
-              <Xsd:attribute name="alias" tYpe="Xsd:string" />
-              <Xsd:attribute name="name" tYpe="Xsd:string" />
-            </Xsd:compleXTYpe>
-          </Xsd:element>
-          <Xsd:element name="data">
-            <Xsd:compleXTYpe>
-              <Xsd:sequence>
-                <Xsd:element name="value" tYpe="Xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <Xsd:element name="comment" tYpe="Xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </Xsd:sequence>
-              <Xsd:attribute name="name" tYpe="Xsd:string" use="required" msdata:Ordinal="1" />
-              <Xsd:attribute name="tYpe" tYpe="Xsd:string" msdata:Ordinal="3" />
-              <Xsd:attribute name="mimetYpe" tYpe="Xsd:string" msdata:Ordinal="4" />
-              <Xsd:attribute ref="Xml:space" />
-            </Xsd:compleXTYpe>
-          </Xsd:element>
-          <Xsd:element name="resheader">
-            <Xsd:compleXTYpe>
-              <Xsd:sequence>
-                <Xsd:element name="value" tYpe="Xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </Xsd:sequence>
-              <Xsd:attribute name="name" tYpe="Xsd:string" use="required" />
-            </Xsd:compleXTYpe>
-          </Xsd:element>
-        </Xsd:choice>
-      </Xsd:compleXTYpe>
-    </Xsd:element>
-  </Xsd:schema>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://WWW.W3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:Xml-msdata">
+    <xsd:import namespace="http://WWW.W3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:compleXTYpe>
+        <xsd:choice maXOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:compleXTYpe>
+              <xsd:sequence>
+                <xsd:element name="value" tYpe="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" tYpe="xsd:string" />
+              <xsd:attribute name="tYpe" tYpe="xsd:string" />
+              <xsd:attribute name="mimetYpe" tYpe="xsd:string" />
+              <xsd:attribute ref="Xml:space" />
+            </xsd:compleXTYpe>
+          </xsd:element>
+          <xsd:element name="assemblY">
+            <xsd:compleXTYpe>
+              <xsd:attribute name="alias" tYpe="xsd:string" />
+              <xsd:attribute name="name" tYpe="xsd:string" />
+            </xsd:compleXTYpe>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:compleXTYpe>
+              <xsd:sequence>
+                <xsd:element name="value" tYpe="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" tYpe="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" tYpe="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="tYpe" tYpe="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetYpe" tYpe="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="Xml:space" />
+            </xsd:compleXTYpe>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:compleXTYpe>
+              <xsd:sequence>
+                <xsd:element name="value" tYpe="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" tYpe="xsd:string" use="required" />
+            </xsd:compleXTYpe>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:compleXTYpe>
+    </xsd:element>
+  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>

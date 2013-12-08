@@ -2,7 +2,7 @@
 
 % Packages
 \usepackage[utf8]{inputenc}
-\usepackage[english, danish]{babel}
+\usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{fullpage}
 \usepackage{geometry}
@@ -29,11 +29,11 @@
 
 % Chapter and section spacings
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{0.5em}{}
-\titlespacing*{\section}{0pt}{1.5ex plus 1ex minus .2ex}{0.8ex plus .2ex}
+\titlespacing*{\section}{0pt}{-0.5ex}{0.0ex}
 \titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{0.5em}{}
-\titlespacing*{\subsection} {0pt}{0.5ex}{0.5ex}
+\titlespacing*{\subsection} {0pt}{-0.5ex}{0.0ex}
 \titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{0.5em}{}
-\titlespacing*{\subsubsection}{0pt}{0.5ex}{0.5ex}
+\titlespacing*{\subsubsection}{0pt}{-0.5ex}{0.0ex}
 \titleformat{\paragraph}[runin]{\normalfont\normalsize\bfseries}{\theparagraph}{0.85em}{\large}
 \titlespacing*{\paragraph} {0pt}{1ex}{0.5em}
 \titleformat{\subparagraph}[runin]{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{\normalsize}
@@ -97,7 +97,6 @@ breaklines=true}
 \input{Sections/Intro.tex}
 \input{Sections/Features.tex}
 \input{Sections/CodeOverview.tex}
-\input{Sections/Problems.tex}
 \input{Sections/Conclusion.tex}
 \input{Sections/FutureWork.tex}
 \input{Sections/Appendix.tex}

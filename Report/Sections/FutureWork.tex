@@ -1,11 +1,9 @@
 \section{Future Work} 
-
-\subsection{Load triangles/vertices from a file}
-
+My suggestions for future work done on this project would be to test performance on larger scenes, load triangles/vertices from a file, do frustum culling and to improve camera controls.
 \subsection{Test performance}
-
-\subsection{Frustum culling}
-
+The hard-coded pyramid does not stress the renderer at all, so it is hard to know if optimizations are necessary. Using a larger wireframe (such as a ship, a person or a detailed building) would stress the renderer in a way that would show this. Hard-coding these would be fairly cumbersome, so I would suggest this is done in combination with my next suggestion.
+\\If optimizations are necessary, I would suggest implementing frustum culling (or clipping) as mentioned in section \ref{Math}.
+\subsection{Load triangles/vertices from a file}
+In the current implementation of the renderer, it is much too cumbersome to render detailed objects as they need to be hard-coded. I suggest implementing a way to import triangles and vertices from a file, so that models made in 3D modelling software could be imported.
 \subsection{Better camera controls}
-
-\subsubsection{Change camera variables}
+Currently the camera controls are quite limited, as they do not do rotation of the view and the position of the camera can only be moved on the x/y/z-axis. Utilizing the mouse instead of only using the keyboard would also offer a large improvement.

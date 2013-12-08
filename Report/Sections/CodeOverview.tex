@@ -1,32 +1,21 @@
 \section{Overview of the Program}
-\subsection{Objects}
-\textbf{Vector}
+The \textbf{Vector}, \textbf{Matrix}, \textbf{Vertex} and \textbf{Triangle} are just object representations of the respective math/geometry concepts. I have implemented the wireframe renderer using the column-vector convention.
 
-\textbf{Matrix}
-
-\textbf{Vertex}
-
-\textbf{Triangle}
-
-\textbf{Camera}
-
-\textbf{Loader}
+The \textbf{Camera} class represents the camera of the renderer. The constructor defines the Near, Far, Aspect Ratio and Field of View variables, but these can be changed using the properties of the camera. It also contains the calculations for the transformation matrices. 
+\\Currently the movement of the camera is very poorly implemented. Better camera movement would be actual rotation (instead of the look point only moving on one axis at a time) and the user being able to move the camera around with the mouse.
 
 \subsection{Renderer}
+The constructor of the \textbf{Renderer} instantiates a new camera and uses it to open a Windows Forms window. Then it gets the pyramid from the \textbf{Loader} and starts the first draw/paint.
 
-how does renderer draw (when)
+Whenever the renderer is drawing to the screen, it first makes the camera calculate all of the transforms (more on this in section \ref{Math}). Then it asks each triangle to update itself according to the camera (triangle then makes its three vertices update according to the camera) and then it draws the three lines making up the triangle.
 
-drawing process
-	(calculate camera transforms, see \ref{Overview_Math_Single})
-	(foreach triangle : update triangle according to camera, draw triangle based on view points)
-	(only draws lines, not points)
+I have chosen not to draw each point (only the lines), because it makes no difference to how the wireframe looks when rendered in my implementation. Each vertex could be a thicker/larger point than the line itself, but I do not believe this is necessary.
 
 \subsection{Math}
+\label{Math}
+The update function of the vertex contains most of the pseudo-code from section 4 of the overview document mentioned in section \ref{Intro}. I have chosen to update the screen point of the vertex at a lower level, because I believe it makes the code much cleaner. 
+\\It does come with a drawback, however. In my implementation I do not skip updating the screen point (as per "\textit{if any of .x/.y/.z are outside the range [-1,1], skip to next vertex}"), so the figure may appear deformed if the camera is positioned in a particular way. A way around this problem could be to force calculation of the screen points if the screen point is null or (0, 0).
 
-vertices are given the camera and calculate their own screen points (instead of renderer doing so) [point out problem with calculating points that are offscreen]
+I have not implemented frustum culling (for the reasons stated above), but would do so if I also implemented the skipping of the vertices outside of the the range [-1, 1].
 
-no frustum culling
-
-\subsubsection{Single calculation}
-\label{Overview_Math_Single}
-One calculation of camera transforms per draw
+I have chosen to do an optimization when multiplying the three transforms camera transforms (\textit{perspectiveTransform} * \textit{cameraLookTransform} * \textit{cameraLocationTransform}). I calculate the resulting matrix of this chain of transforms every time the renderer is about to draw and cache it to decrease the amount of necessary calculations on each draw. While it does not matter when there are only 20 updates to calculate\footnote{Because every triangle is asked to update its vertices, even shared vertices are updated multiple times. This could be fixed by having a list of all vertices and not updating them once per triangle, but instead running through the entire list of vertices.}, these calculations could take a very long time to do in case there are very many vertices.
